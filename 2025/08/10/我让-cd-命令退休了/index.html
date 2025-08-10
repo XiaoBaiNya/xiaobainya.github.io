@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.33.1" theme-name="Stellar" theme-version="1.33.1">
   
-  <meta name="robots" content="noindex,follow">
+  
   <meta name="generator" content="Hexo 7.3.0">
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   
@@ -17,12 +17,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   <meta name="theme-color" content="#f9fafb">
-  <title>分类：计算机 - 白嘞个白</title>
+  <title>我让 cd 命令退休了 - 白嘞个白</title>
 
   
-  <meta name="description" content="欢迎来到小白的博客">
+  <meta name="description" content="用 zoxide 让 cd 命令飞起来最近我发现一个能显著提升终端切换目录效率的小工具 —— zoxide。  
+它是 cd 命令的智能升级版，会记住你去过的地方，并且用极短的命令直达目标路径。
+为什么我会用它？长期用命令行的人都知道，频繁 cd 深层目录是一件很耗时的事，尤其是目录路径又长又...">
   
-  <meta name="keywords" content="白嘞个白的博客">
+  <meta name="keywords" content="计算机,github">
 
   <!-- feed -->
   
@@ -36,12 +38,12 @@
 
   
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Website","@id":"https://XiaoBaiNya.github.io","author":{"@type":"Person","name":"XiaoBaiNya","sameAs":[],"image":"https://q1.qlogo.cn/g?b=qq&nk=3446840936&s=640"},"name":"白嘞个白","description":"欢迎来到小白的博客","url":"https://XiaoBaiNya.github.io"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"XiaoBaiNya","sameAs":[],"image":"https://q1.qlogo.cn/g?b=qq&nk=3446840936&s=640"},"dateCreated":"2025-08-10T18:18:58+08:00","dateModified":"2025-08-10T18:24:55+08:00","datePublished":"2025-08-10T18:18:58+08:00","description":"","headline":"我让 cd 命令退休了","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaobainya.github.io/2025/08/10/%E6%88%91%E8%AE%A9-cd-%E5%91%BD%E4%BB%A4%E9%80%80%E4%BC%91%E4%BA%86/"},"publisher":{"@type":"Organization","name":"XiaoBaiNya","sameAs":[],"image":"https://q1.qlogo.cn/g?b=qq&nk=3446840936&s=640","logo":{"@type":"ImageObject","url":"https://q1.qlogo.cn/g?b=qq&nk=3446840936&s=640"}},"url":"https://xiaobainya.github.io/2025/08/10/%E6%88%91%E8%AE%A9-cd-%E5%91%BD%E4%BB%A4%E9%80%80%E4%BC%91%E4%BA%86/","keywords":"计算机, github","thumbnailUrl":"/images/github.png","image":1}</script>
   
 </head>
 <body>
 
-<div class="l_body index" id="start" layout="undefined" type="undefined" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
+<div class="l_body content" id="start" layout="post" type="tech" ><aside class="l_left"><div class="sidebg"></div><div class="leftbar-container">
 
 
 <header class="header"><div class="logo-wrap"><a class="avatar" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://q1.qlogo.cn/g?b=qq&nk=3446840936&s=640" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">白嘞个白</div><div class="sub cap">We cannot change anything until we accept it</div></a></div></header>
@@ -53,42 +55,147 @@
 <div class="widgets">
 <div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
 
+
+
 <widget class="widget-wrapper slide-up recent post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2025/08/06/%E5%BC%80%E6%BA%90%E5%AD%97%E4%BD%93%E6%8E%A8%E8%8D%90/"><span class="title">字体推荐</span></a><a class="item title" href="/2025/08/10/%E6%88%91%E8%AE%A9-cd-%E5%91%BD%E4%BB%A4%E9%80%80%E4%BC%91%E4%BA%86/"><span class="title">我让 cd 命令退休了</span></a><a class="item title" href="/2025/07/26/Mysql%E6%80%8E%E4%B9%88%E9%99%90%E5%88%B6IP%E8%AE%BF%E9%97%AE%EF%BC%9F/"><span class="title">Mysql怎么限制IP访问？</span></a><a class="item title" href="/2025/07/28/%E4%BA%8C%E7%BB%B4%E6%9F%AF%E8%A5%BF%E4%B8%8D%E7%AD%89%E5%BC%8F%E7%9A%84%E5%87%A0%E4%BD%95%E5%9B%BE%E7%A4%BA/"><span class="title">二维柯西不等式的几何图示</span></a><a class="item title" href="/2025/07/26/droid-ify/"><span class="title">droid-ify</span></a><a class="item title" href="/2025/07/28/%E6%88%91%E5%AE%B6%E7%9A%84%E7%8C%AB/"><span class="title">我家的猫</span></a><a class="item title" href="/2025/08/04/%E6%88%91%E5%AE%B6%E7%9A%84%E7%8C%AB2/"><span class="title">我家的猫2</span></a><a class="item title" href="/2025/07/30/%E7%86%AC%E5%A4%9C%E5%B0%8F%E7%8C%AB/"><span class="title">熬夜小猫</span></a><a class="item title" href="/2025/07/31/8%E6%9C%88%E8%AE%A1%E5%88%92/"><span class="title">8月计划</span></a><a class="item title" href="/2025/07/25/B%E7%AB%99UP%E4%B8%BB%EF%BC%9A%E6%9F%8F%E7%89%A9%E8%AF%AD/"><span class="title">B站UP主：柏物语</span></a></div></widget>
 </div>
 
 </div></aside><div class="l_main" id="main">
 
-<header class="header mobile-only"><div class="logo-wrap"><a class="avatar" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://q1.qlogo.cn/g?b=qq&nk=3446840936&s=640" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main">白嘞个白</div><div class="sub cap">We cannot change anything until we accept it</div></a></div></header>
-
- 
 
 
 
 
-<div class="navbar top"><div class="navbar-blur"><div class="navbar-container"><nav class="post"><a href="/">近期发布</a><a class="active" href="/categories/">分类：计算机</a><a href="/tags/">标签</a><a href="/archives/">归档</a><a href="/%E5%85%B3%E4%BA%8E%E6%88%91/">关于</a></nav></div></div></div>
-<div class="post-list post"><a class="post-card slide-up post photo" href="/2025/08/10/%E6%88%91%E8%AE%A9-cd-%E5%91%BD%E4%BB%A4%E9%80%80%E4%BC%91%E4%BA%86/">
-<div class="cover" position="bottom"><img src="/images/github.png"/><div class="cover-info" position="bottom"><div class="text headline">我让 cd 命令退休了</div></div></div>
-</a><a class="post-card slide-up post photo" href="/2025/08/06/%E5%BC%80%E6%BA%90%E5%AD%97%E4%BD%93%E6%8E%A8%E8%8D%90/">
-<div class="cover" position="bottom"><img src="/images/github.png"/><div class="cover-info" position="bottom"><div class="text headline">开源字体Maple-Font</div></div></div>
-</a><a class="post-card slide-up post photo" href="/2025/07/26/droid-ify/">
-<div class="cover" position="bottom"><img src="/images/github.png"/><div class="cover-info" position="bottom"><div class="text headline">开源项目：f-dorid的美化版Droid-ify</div></div></div>
-</a><a class="post-card slide-up post photo" href="/2025/07/26/Mysql%E6%80%8E%E4%B9%88%E9%99%90%E5%88%B6IP%E8%AE%BF%E9%97%AE%EF%BC%9F/">
-<div class="cover" position="bottom"><img src="/images/mysql.png"/><div class="cover-info" position="bottom"><div class="text headline">Mysql限制IP访问</div></div></div>
-</a></div>
+<div class="article banner slide-up top"><img class="lazy bg" data-src="/images/github.png">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/">开源项目</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2025-08-10T10:18:58.000Z">2025-08-10</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-08-10T10:24:55.163Z">2025-08-10</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>我让 cd 命令退休了</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content slide-up"><h1 id="用-zoxide-让-cd-命令飞起来"><a href="#用-zoxide-让-cd-命令飞起来" class="headerlink" title="用 zoxide 让 cd 命令飞起来"></a>用 zoxide 让 cd 命令飞起来</h1><p>最近我发现一个能显著提升终端切换目录效率的小工具 —— <strong><a target="_blank" rel="noopener" href="https://github.com/ajeetdsouza/zoxide">zoxide</a></strong>。  </p>
+<p>它是 <code>cd</code> 命令的智能升级版，会记住你去过的地方，并且用极短的命令直达目标路径。</p>
+<h2 id="为什么我会用它？"><a href="#为什么我会用它？" class="headerlink" title="为什么我会用它？"></a>为什么我会用它？</h2><p>长期用命令行的人都知道，频繁 <code>cd</code> 深层目录是一件很耗时的事，尤其是目录路径又长又复杂的时候。  </p>
+<p>比如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/projects/code/side-projects/2025/awesome-feature</span><br></pre></td></tr></table></figure>
+
+<p>手敲很累，Tab 补全也要按很多次。  </p>
+<p>而 <code>zoxide</code> 会记住你访问过的路径，之后只要输入关键字就能跳转，几乎不需要完整路径。</p>
+<hr>
+<h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h2><p>zoxide 支持主流平台，安装很简单：</p>
+<p><strong>macOS &#x2F; Linux（Homebrew）</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install zoxide</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Arch Linux</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S zoxide</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>Windows（Scoop）</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scoop install zoxide</span><br></pre></td></tr></table></figure>
+
+
+
+<p>安装完成后，还需要在你的 shell 配置文件里加一行（以 zsh 为例）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(zoxide init zsh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然后重新加载：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>zoxide 把 <code>cd</code> 升级成了 <code>z</code>（或者 <code>zi</code>），用法很直观：</p>
+<ol>
+<li><p><strong>进入目录一次</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/projects/code/side-projects/2025/awesome-feature</span><br></pre></td></tr></table></figure>
+
+
+</li>
+<li><p><strong>下次直接用关键字跳转</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z awesome</span><br></pre></td></tr></table></figure>
+
+<p>就能直接跳到上面的路径，不用输入全路径。</p>
+</li>
+<li><p><strong>模糊匹配多个关键词</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z code awesome</span><br></pre></td></tr></table></figure>
+
+<p>如果你的关键字组合唯一匹配到一个路径，就直接跳过去。</p>
+</li>
+<li><p><strong>查看常去目录排行榜</strong>  </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zoxide query -l</span><br></pre></td></tr></table></figure>
+
+<p>还能当作“我最近去哪儿了”的小日志。</p>
+</li>
+</ol>
+<hr>
+<h2 id="我的使用体验"><a href="#我的使用体验" class="headerlink" title="我的使用体验"></a>我的使用体验</h2><p>我现在已经完全习惯用 <code>z</code> 代替 <code>cd</code> 了。  </p>
+<p>尤其在处理多个项目、频繁跳转不同深度的文件夹时，几乎节省了一半以上的输入时间。  </p>
+<p>用起来的感觉就是：<strong>从“手动找路”升级到“瞬移”</strong>。  </p>
+<p>如果你也在终端里跑来跑去，<code>zoxide</code> 值得立刻试试。</p>
+<hr>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><p>GitHub 项目地址：<a target="_blank" rel="noopener" href="https://github.com/ajeetdsouza/zoxide">https://github.com/ajeetdsouza/zoxide</a></p>
+</li>
+<li><p>官方文档：<a target="_blank" rel="noopener" href="https://github.com/ajeetdsouza/zoxide#readme">https://github.com/ajeetdsouza/zoxide#readme</a></p>
+</li>
+</ul>
+<hr>
+<p><em>写在最后</em>：技术工具的乐趣，不只是功能强大，还在于它能融入你的日常习惯，让你感觉“离开它就不行”。zoxide 就是这样的小确幸。</p>
+</article>
+<div class="article-footer slide-up">
+
+
+    <section id="share">
+      <div class="header"><span>分享文章</span></div>
+      <div class="body">
+        <div class="link"><input class="copy-area" readonly="true" id="copy-link" value="https://xiaobainya.github.io/2025/08/10/%E6%88%91%E8%AE%A9-cd-%E5%91%BD%E4%BB%A4%E9%80%80%E4%BC%91%E4%BA%86/" /></div>
+        <div class="social-wrap dis-select"><a class="social share-item email" href="mailto:?subject=我让 cd 命令退休了 - 白嘞个白&amp;body=https://xiaobainya.github.io/2025/08/10/%E6%88%91%E8%AE%A9-cd-%E5%91%BD%E4%BB%A4%E9%80%80%E4%BC%91%E4%BA%86/"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/a1b00e20f425d.svg" /></a><a class="social share-item link" onclick="util.copy(&quot;copy-link&quot;, &quot;复制成功&quot;)"><img  src="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/social/8411ed322ced6.svg" /></a></div>
+        
+      </div>
+    </section>
+    </div>
+
+<div class="related-wrap slide-up" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2025/08/06/%E5%BC%80%E6%BA%90%E5%AD%97%E4%BD%93%E6%8E%A8%E8%8D%90/">字体推荐</a></div></section></div>
+
+
+
+
+  <div class="related-wrap md-text slide-up" id="comments">
+    <section class='header cmt-title cap theme'>
+      <p>快来参与讨论吧~</p>
+
+    </section>
+    <section class='body cmt-body giscus'>
+      
+
+<svg class="loading" style="vertical-align:middle;fill:currentColor;overflow:hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2709"><path d="M832 512c0-176-144-320-320-320V128c211.2 0 384 172.8 384 384h-64zM192 512c0 176 144 320 320 320v64C300.8 896 128 723.2 128 512h64z" p-id="2710"></path></svg>
+
+<div id="giscus" src="https://giscus.app/client.js" data-repo="XiaoBaiNya/XiaoBaiNya.github.io" data-repo-id="R_kgDOPTHKQw" data-category="Announcements" data-category-id="DIC_kwDOPTHKQ84Ctb9k" data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" crossorigin="anonymous"></div>
+
+    </section>
+  </div>
+
 
 
 <footer class="page-footer slide-up footnote"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
-<widget class="widget-wrapper slide-up user-card ghuser"><div class="widget-body data-service ds-ghinfo" data-api="https://api.github.com/users/xiaobainya"><div class="avatar" ><img no-lazy type="img" id="avatar_url" src="https://q1.qlogo.cn/g?b=qq&nk=3446840936&s=640" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></div><p class="username" type="text" id="name">&nbsp;</p><p class="bio" type="text" id="bio">&nbsp;</p><div class="buttons"><a class="btn" target="_blank" rel="noopener" href="https://github.com/xiaobainya?tab=followers"><span class="title" type="text" id="followers">0</span><span class="desc">followers</span></a><a class="btn" target="_blank" rel="noopener" href="https://github.com/xiaobainya?tab=following"><span class="title" type="text" id="following">0</span><span class="desc">following</span></a><a class="btn" target="_blank" rel="noopener" href="https://github.com/xiaobainya?tab=repositories"><span class="title" type="text" id="public_repos">0</span><span class="desc">repos</span></a></div><a class="follow" target="_blank" rel="noopener" href="https://github.com/xiaobainya"><svg aria-hidden="true" role="img" class="color-icon-primary" viewBox="0 0 16 16" width="1em" height="1em" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>Follow</a></div></widget>
 
-<widget class="widget-wrapper slide-up markdown"><div class="widget-body fs14"><h1 id="🚀-我的数字生活手账"><a href="#🚀-我的数字生活手账" class="headerlink" title="🚀 我的数字生活手账"></a>🚀 我的数字生活手账</h1><p>欢迎来到我的个人博客！这里是我记录成长、分享热爱的数字小天地，兼容理性代码与浪漫人文，平衡学习沉淀与生活趣味。</p>
-<h3 id="💻-计算机"><a href="#💻-计算机" class="headerlink" title="💻 计算机"></a>💻 计算机</h3><p>我会分享我在计算机上的所见所闻，并且会记载我在各种方面踩的坑🕳。</p>
-<h3 id="✍🏻-数学"><a href="#✍🏻-数学" class="headerlink" title="✍🏻 数学"></a>✍🏻 数学</h3><p>平时会在媒体平台上看一些有趣的数学短视频，喜欢研究天马行空的东西！</p>
-<h3 id="📝-个人观点"><a href="#📝-个人观点" class="headerlink" title="📝 个人观点"></a>📝 个人观点</h3><p>有时候一个人的成长总会带来认思想的转变，我会记录我在不同时期对一些问题的看法理解等。</p>
-<h3 id="🌈-分享"><a href="#🌈-分享" class="headerlink" title="🌈 分享"></a>🌈 分享</h3><p>在这里会经常转发我喜欢的视频链接，文案等</p>
-</div></widget>
+
+
+<widget class="widget-wrapper slide-up toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%A8-zoxide-%E8%AE%A9-cd-%E5%91%BD%E4%BB%A4%E9%A3%9E%E8%B5%B7%E6%9D%A5"><span class="toc-text">用 zoxide 让 cd 命令飞起来</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BC%9A%E7%94%A8%E5%AE%83%EF%BC%9F"><span class="toc-text">为什么我会用它？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%96%B9%E6%B3%95"><span class="toc-text">安装方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BD%93%E9%AA%8C"><span class="toc-text">我的使用体验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">参考链接</span></a></li></ol></li></ol></div><div class="widget-footer"><a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/><path d="M7 3.338A9.95 9.95 0 0 1 12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12c0-1.821.487-3.53 1.338-5"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ --><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8 10.5h8M8 14h5.5M17 3.338A9.95 9.95 0 0 0 12 2C6.477 2 2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10c0-1.821-.487-3.53-1.338-5"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel'>
   <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
@@ -583,6 +690,30 @@
 
 
 <!-- optional -->
+
+  <script type="module">
+  const el = document.querySelector('#comments #giscus');
+  util.viewportLazyload(el, load_discus, true);
+
+  function load_discus() {
+    if (!el) return;
+    try {
+        el.innerHTML = '';
+      } catch (error) {
+        console.error(error);
+      }
+      const script = document.createElement('script');
+      script.async = true;
+      for (const key of Object.keys(el.attributes)) {
+        const attr = el.attributes[key];
+        if (['class', 'id'].includes(attr.name) === false) {
+          script.setAttribute(attr.name, attr.value);
+        }
+      }
+      el.appendChild(script);
+  }
+</script>
+
 
 
 
