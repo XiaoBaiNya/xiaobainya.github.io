@@ -9085,7 +9085,7 @@ body>.sitebg .siteblur {
   --blur-px: 0;
   --blur-sat: 200%;
   background-color: var(--blur-bg);
-  --blur-sat: 200%;
+  --blur-sat: 300%;
   --blur-px: 100px;
   --blur-bg: var(--bg-a75);
 }
