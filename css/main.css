@@ -7224,7 +7224,7 @@ details.toc[open] >div.body section .header+.doc_tree {
   --saturate: 400%;
   --blur-px: 100px;
   --background-opacity: 1;
-  background-color: var(--card);
+  background-color: var(--block);
 }
 .l_left .leftbar-container {
   height: calc(100vh - var(--gap-margin) * 2 - 96px);
